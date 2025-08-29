@@ -31,6 +31,7 @@ def extract_chat(
     token: str,
     channel_id: str,
     filename: str,
+    timezone: dt.timezone,
     before: dt.datetime = dt.datetime.now().replace(hour=23, minute=59, second=59, microsecond=999999),
     after: dt.datetime = (dt.datetime.now() - dt.timedelta(days=1)).replace(hour=0, minute=0, second=0, microsecond=0),
     save: bool = False,
@@ -53,17 +54,11 @@ def extract_chat(
         return ChatRawData({"chatters": {}, "contents": []})
 
     chat_data = res.json()
-
     for msg in chat_data:
-        msg_dt = dt.datetime.fromisoformat(msg["timestamp"].replace("Z", "+00:00")).astimezone(dt.timezone.utc).replace(tzinfo=None)
-
-        if msg_dt < after or msg_dt > before:
-            continue
-
         name: str = msg["author"]["username"] if msg["author"]["global_name"] is None else msg["author"]["global_name"]
         avatar: str = f'https://cdn.discordapp.com/avatars/{msg["author"]["id"]}/{msg["author"]["avatar"]}.png?size=128'
         content = msg["content"]
-        timestamp = utils.format_datetime(msg_dt)
+        timestamp = utils.format_datetime(dt.datetime.fromisoformat(msg["timestamp"]).astimezone(timezone))
         attachments = list(map(utils.attachment_align, msg["attachments"]))
 
         chatter_sector = (name, avatar)
@@ -73,7 +68,7 @@ def extract_chat(
 
     for chatter in chatters_r:
         chatters[chatter[0]] = {"name": chatter[0], "avatar": chatter[1]}
-
+    contents.reverse()
     extracted_data = {"chatters": chatters, "contents": contents}
 
     if save:
