@@ -1,0 +1,56 @@
+{
+  "descriptions": {
+    "title": "후욱후욱 디지털 게이짓ㅋㅋ",
+    "watermark": "@h03_txle/tokkiyeah"
+  },
+  "chatters": {
+    "퍼리보는사나이": {
+      "avatarURL": "https://cdn.discordapp.com/avatars/663290871323820032/9a6b19799d44ad8f9d5ba53927e07d19.png?size=128"
+    },
+    "ho3_txle": {
+      "avatarURL": "https://cdn.discordapp.com/avatars/584620334242594824/d430f9bf370fcfa932056701a7415243.png?size=128"
+    }
+  },
+  "contents": [
+    {
+      "username": "퍼리보는사나이",
+      "content": "디게이",
+      "timestamp": "25. 8. 9. AM 8:55",
+      "attachments": [],
+      "sound": "./asset/sounds/discord-notification.mp3",
+      "effect": [],
+      "animation": "pop",
+      "duration": 1.2
+    },
+    {
+      "username": "ho3_txle",
+      "content": "디지털 게이야",
+      "timestamp": "25. 8. 9. AM 8:55",
+      "attachments": [],
+      "sound": "./asset/sounds/discord-notification.mp3",
+      "effect": [],
+      "animation": "slideUp",
+      "duration": 2.2
+    },
+    {
+      "username": "퍼리보는사나이",
+      "content": ";;",
+      "timestamp": "25. 8. 9. AM 7:29",
+      "attachments": [],
+      "sound": "./asset/sounds/discord-notification.mp3",
+      "effect": [],
+      "animation": "pop",
+      "duration": 1.2
+    },
+    {
+      "username": "ho3_txle",
+      "content": "(실명)짱 후욱후욱",
+      "timestamp": "25. 8. 9. AM 6:20",
+      "attachments": [],
+      "sound": "./asset/sounds/discord-notification.mp3",
+      "effect": [],
+      "animation": "slideUp",
+      "duration": 2.2
+    }
+  ]
+}
