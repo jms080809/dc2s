@@ -102,7 +102,7 @@ def generate_discord_chat_shorts(
                 img_clip = (
                     ImageClip(np.array(pil_img))
                     .with_duration(duration)
-                    .resize(width=VIDEO_WIDTH - PADDING)
+                    .resized(width=VIDEO_WIDTH - PADDING)
                     .with_position(("center", content_clip.pos(0)[1] + content_clip.h + 20))
                 )
                 scene_elements.append(img_clip)

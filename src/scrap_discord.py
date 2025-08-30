@@ -46,25 +46,38 @@ def extract_chat(
     chatters = {}
     contents = []
 
-    # 날짜 단위로 자르지 않고, 지정된 시간 범위를 그대로 사용
-    url = f"https://discord.com/api/v9/channels/{channel_id}/messages?before={datetime_to_snowflake(before)}&after={datetime_to_snowflake(after)}&limit=100"
-    res = requests.get(url, headers=headers)
-    if res.status_code != 200:
-        print(f"Error {res.status_code} while fetching messages between {after} and {before}")
-        return ChatRawData({"chatters": {}, "contents": []})
+    after_snowflake = datetime_to_snowflake(after)
+    before_utc = before.astimezone(dt.timezone.utc)  # UTC로 변환된 before
 
-    chat_data = res.json()
-    for msg in chat_data:
-        name: str = msg["author"]["username"] if msg["author"]["global_name"] is None else msg["author"]["global_name"]
-        avatar: str = f'https://cdn.discordapp.com/avatars/{msg["author"]["id"]}/{msg["author"]["avatar"]}.png?size=128'
-        content = msg["content"]
-        timestamp = utils.format_datetime(dt.datetime.fromisoformat(msg["timestamp"]).astimezone(timezone))
-        attachments = list(map(utils.attachment_align, msg["attachments"]))
 
-        chatter_sector = (name, avatar)
-        content_sector = {"name": name, "content": content, "timestamp": timestamp, "attachments": attachments}
-        chatters_r.add(chatter_sector)
-        contents.append(content_sector)
+    url = f"https://discord.com/api/v9/channels/{channel_id}/messages?after={after_snowflake}&limit=100"
+    while url:
+        res = requests.get(url, headers=headers)
+        if res.status_code != 200:
+            print(f"Error {res.status_code} while fetching messages between {after} and {before}")
+            return ChatRawData({"chatters": {}, "contents": []})
+
+        chat_data = res.json()
+
+        for msg in chat_data:
+            msg_timestamp = dt.datetime.fromisoformat(msg["timestamp"]).astimezone(dt.timezone.utc)
+            if msg_timestamp < after.astimezone(dt.timezone.utc) or msg_timestamp > before_utc:
+                continue  # 시간 범위 밖 메시지 제외
+            name = msg["author"]["username"] if msg["author"]["global_name"] is None else msg["author"]["global_name"]
+            avatar = f'https://cdn.discordapp.com/avatars/{msg["author"]["id"]}/{msg["author"]["avatar"]}.png?size=128'
+            content = msg["content"]
+            timestamp = utils.format_datetime(dt.datetime.fromisoformat(msg["timestamp"]).astimezone(timezone))
+            attachments = list(map(utils.attachment_align, msg["attachments"]))
+
+            chatter_sector = (name, avatar)
+            content_sector = {"name": name, "content": content, "timestamp": timestamp, "attachments": attachments}
+            chatters_r.add(chatter_sector)
+            contents.append(content_sector)
+
+        if len(chat_data) < 100:
+            break  # 더 이상 메시지 없음
+        last_msg_id = chat_data[-1]["id"]
+        url = f"https://discord.com/api/v9/channels/{channel_id}/messages?after={last_msg_id}&limit=100"
 
     for chatter in chatters_r:
         chatters[chatter[0]] = {"name": chatter[0], "avatar": chatter[1]}
@@ -75,7 +88,7 @@ def extract_chat(
         file_src = f"./chats/{filename}.json"
         if os.path.isfile(file_src):
             os.remove(file_src)
-        with open(file_src, "+a", encoding="utf-8") as f:
+        with open(file_src, "w", encoding="utf-8") as f:
             f.write(json.dumps(extracted_data, ensure_ascii=False, indent=2))
 
     return ChatRawData(extracted_data)

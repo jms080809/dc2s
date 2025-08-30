@@ -16,72 +16,31 @@ def genearte_scenario(content, save: bool, filename: str, translate: bool = Fals
         [f'"{os.path.join(root, f)}"' for root, dirs, files in os.walk(sound_dir) for f in files if not f.endswith(".Identifier")]
     )
     prompt = f"""
-    You are a data transformation expert. Convert a JSON chat log into a single, valid JSON object containing three keys: "descriptions", "chatters", and "contents".
+    You are a data transformation expert. Convert a JSON chat log into a valid JSON object with keys: "descriptions", "chatters", "contents".
 
-    Requirements:
+    1. "descriptions":
+    - "title": funny, concise (<11 words), informal (Reddit/4chan style), follows 'translate' bool, allows emojis/special chars (e.g., 선1정적인 남1자, 씨1봉방거;;;@@).
+    - "watermark": "@h03_txle/tokkiyeah".
 
-    1. "descriptions" object:
-    - "title": generate from the chat content,which is not only concise but also funny like youtube video shorts,following informal language.
-    language of this also follows 'translate' bool values.
-    you have to write this like reddit users or 4chan users, and you have to write less than 11 words in korean. similarily,
-    you also have to keep that length to other languages.
-    you can include special characters and emojis if you want, and these are examples:
-    선1정적인 남1자, 씨1봉방거;;;@@, 남1대문은 쉽게 닫을 수 없지ㅋ. 
-    - "watermark": always "@h03_txle/tokkiyeah".
-
-    2. "chatters" object:
-    - Each unique username is a key.
-    - Each value must be an object with only one key: "avatarURL".
-    - Do not repeat avatar URLs in messages.
+    2. "chatters":
+    - Unique usernames as keys.
+    - Values: object with "avatarURL" key only, no duplicate URLs.
 
     3. "contents" array:
-    - Each element must include:
-        - "username"
-        - "content" (If content is considered that it has dangerous information such as someone's real name, phone number, etc, you have to shade it )
-        for example, 김정환 -> 김XX, 후선 -> XX, but you dont have to shade celebrity's or pseudo one. for example, Vladimir Putin, 김정은(Jeong un Kim), Donald Trump, 
-        or Hoshou Marine, etc.
-        - "timestamp"
-        - "attachments" (if present, include the first with "url" and "media_type")
-        - "sound" (from {sound_prompt_list}, default: "{sound_dir}/discord-notification.mp3")
-        - "effect" (from {effect_list})
-        - "animation" (from {animation_list}, with rules below),
-        - "duration" 
+    - Each item: "username", "content" (mask private info like 김정환→김XX, exclude celebrities), "timestamp", "attachments" (first with "url", "media_type"), "sound" (from {sound_prompt_list}, default: "{sound_dir}/discord-notification.mp3"), "effect" (from {effect_list}), "animation" (from {animation_list}), "duration".
 
-    Animation rules:
-    - Attachment present → "scaleFade"
-    - Short messages (<20 chars) → "pop"
-    - Long messages → "slideUp"
-    - System/bot messages → "none"
+    Rules:
+    - Animation: Attachment → "scaleFade", <20 chars → "pop", >50 chars → "slideUp", system/bot → "none".
+    - Sound: Match sentiment/context or use "{sound_dir}/discord-notification.mp3".
+    - Duration: <20 chars → 1–1.5s, 20–50 chars → 2–2.5s, >50 chars → 3–3.5s, system/bot → 1s.
+    - Language: If translate=false, keep original; if true, translate all (content, title).
 
-    Sound rules:
-    - Match sentiment/context to a provided sound if possible.
-    - Otherwise use "{sound_dir}/discord-notification.mp3".
-
-    Duration rules:
-
-    Short messages (<20 chars) → 1–1.5 seconds
-
-    Medium messages → 2–2.5 seconds
-
-    Long messages (>50 chars) → 3–3.5 seconds
-
-System/bot messages → 1 second
-    Language rules:
-    - You will receive a variable "translate".
-        - If translate = false, keep all content text in the original language it was written in.
-        - If translate = true, translate all content into the specified language.
-    - Apply this consistently to message contents, titles, and any descriptive text.
-
-    Output Format:
-    - Must be a valid JSON object.
-    - Top-level keys: "descriptions", "chatters", "contents".
-    - All keys must use double quotes.
-    - Do not include explanations, markdown, comments, or extra text.
-    - Output JSON only. Never include ```json or ``` markers.
+    Output: Valid JSON, double-quoted keys, no explanations, markdown, or extra text.
     """
 
     # ai-generation part
-    OPENROUTERTOKEN = os.getenv("OPENROUTERTOKEN")
+    OPENROUTERTOKEN:str = os.getenv("OPENROUTERTOKEN")
+    OPENROUTER_MODEL:str = os.getenv("OPENROUTER_MODEL")
     client = OpenAI(
         base_url="https://openrouter.ai/api/v1",
         api_key=OPENROUTERTOKEN,
@@ -93,7 +52,7 @@ System/bot messages → 1 second
         {"role": "user", "content": f"tranlsate={translate}"},
     ]
     completion = client.chat.completions.create(
-        model="z-ai/glm-4.5-air:free",
+        model=OPENROUTER_MODEL,
         messages=messages,
     )
     print(
