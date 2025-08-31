@@ -19,8 +19,8 @@ def genearte_scenario(content, save: bool, filename: str, translate: bool = Fals
     You are a data transformation expert. Convert a JSON chat log into a valid JSON object with keys: "descriptions", "chatters", "contents".
 
     1. "descriptions":
-    - "title": funny, concise (<11 words), informal (Reddit/4chan style), follows 'translate' bool, allows emojis/special chars (e.g., 선1정적인 남1자, 씨1봉방거;;;@@).
-    - "watermark": "@h03_txle/tokkiyeah".
+    - "title": funny, concise (<11 characters in korean, less than 15 characters in english), informal (Reddit/4chan style), follows 'translate' bool, allows emojis/special chars (e.g., 선1정적인 남1자, 씨1봉방거;;;@@).
+    - "watermark": "@ho3_txle/tokkiyeah".
 
     2. "chatters":
     - Unique usernames as keys.
@@ -31,11 +31,14 @@ def genearte_scenario(content, save: bool, filename: str, translate: bool = Fals
 
     Rules:
     - Animation: Attachment → "scaleFade", <20 chars → "pop", >50 chars → "slideUp", system/bot → "none".
-    - Sound: Match sentiment/context or use "{sound_dir}/discord-notification.mp3".
+    - Sound: you have to choose appropriate sounds according to chats. the list of sound is this:{sound_prompt_list} , default use is "{sound_dir}/discord-notification.mp3".
+    and you can designate like this:"{sound_dir}/*.mp3", and ignore .identifier files.
     - Duration: <20 chars → 1–1.5s, 20–50 chars → 2–2.5s, >50 chars → 3–3.5s, system/bot → 1s.
     - Language: If translate=false, keep original; if true, translate all (content, title).
 
     Output: Valid JSON, double-quoted keys, no explanations, markdown, or extra text.
+    **ATTENTION! you cannot print ``` , which is code distinguisher in message like ```json. and you have to change bad words to words that have similar pronounciations or shade particular part.
+    for example, fuck -> F--k, 씨발->C발,etc. and you have to seperate messages if the message has attachment(image), first message last image.
     """
 
     # ai-generation part

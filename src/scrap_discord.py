@@ -68,7 +68,7 @@ def extract_chat(
             content = msg["content"]
             timestamp = utils.format_datetime(dt.datetime.fromisoformat(msg["timestamp"]).astimezone(timezone))
             attachments = list(map(utils.attachment_align, msg["attachments"]))
-
+            print(attachments)
             chatter_sector = (name, avatar)
             content_sector = {"name": name, "content": content, "timestamp": timestamp, "attachments": attachments}
             chatters_r.add(chatter_sector)
@@ -89,6 +89,6 @@ def extract_chat(
         if os.path.isfile(file_src):
             os.remove(file_src)
         with open(file_src, "w", encoding="utf-8") as f:
-            f.write(json.dumps(extracted_data, ensure_ascii=False, indent=2))
+            f.write(json.dumps(extracted_data, indent=2))
 
     return ChatRawData(extracted_data)
