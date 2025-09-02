@@ -1,10 +1,11 @@
-from generate_scenario import genearte_scenario
+from generate_scenario import generate_scenario
 import datetime as dt
-from scrap_discord import extract_chat
+from scrap_discord import extract_chat,ChatRawData
 from dotenv import load_dotenv
 from shorts import generate_discord_chat_shorts
 import os
 import json
+
 
 load_dotenv("../.env")
 filename = os.getenv("filename")
@@ -17,24 +18,15 @@ if load_from_scenario_file:
 else:
     timezone = dt.timezone(dt.timedelta(hours=9))  # KST
 
-    after = dt.datetime(2025, 8, 29, 12 + 9, 11).astimezone(timezone)
-    before = dt.datetime(2025, 8, 29, 12 + 9, 47).astimezone(timezone)
+    after = dt.datetime(2025, 8, 18, 12 + 10, 16).astimezone(timezone)
+    before = dt.datetime(2025, 8,18, 12 + 10, 23).astimezone(timezone)
 
     TOKEN = os.getenv("TOKEN")
     CHANNEL_ID = os.getenv("CHANNEL_ID")
 
     chat_data = extract_chat(TOKEN, CHANNEL_ID, filename=filename, save=True, after=after, before=before, timezone=timezone)
+    # chat_data = open("./chats/furry.json").read()
+    # chat_data = ChatRawData(json.loads(chat_data))
+    scenario = generate_scenario(content=chat_data.get_data(), save=True, filename=filename)
 
-    scenario = genearte_scenario(content=chat_data.get_data(), save=True, filename=filename)
-
-generate_discord_chat_shorts(scenario=scenario, filename=filename)
-#test code never mind
-# timezone = dt.timezone(dt.timedelta(hours=9))  # KST
-
-# after = dt.datetime(2025, 8, 29, 12 + 9, 11).astimezone(timezone)
-# before = dt.datetime(2025, 8, 29, 12 + 9, 47).astimezone(timezone)
-
-# TOKEN = os.getenv("TOKEN")
-# CHANNEL_ID = os.getenv("CHANNEL_ID")
-
-# chat_data = extract_chat(TOKEN, CHANNEL_ID, filename=filename, save=True, after=after, before=before, timezone=timezone)
+generate_discord_chat_shorts(scenario=scenario, filename=filename,message_font="./asset/fonts/SejongGeulggot.ttf")

@@ -7,7 +7,7 @@ from dotenv import load_dotenv
 
 
 @utils.debug_print
-def genearte_scenario(content, save: bool, filename: str, translate: bool = False):
+def generate_scenario(content, save: bool, filename: str, translate: bool = False):
     load_dotenv("../env")
     sound_dir = "./asset/sounds"
     effect_list = []
@@ -19,7 +19,7 @@ def genearte_scenario(content, save: bool, filename: str, translate: bool = Fals
     You are a data transformation expert. Convert a JSON chat log into a valid JSON object with keys: "descriptions", "chatters", "contents".
 
     1. "descriptions":
-    - "title": funny, concise (<11 characters in korean, less than 15 characters in english), informal (Reddit/4chan style), follows 'translate' bool, allows emojis/special chars (e.g., 선1정적인 남1자, 씨1봉방거;;;@@).
+    - "title": funny titles, concise (<11 characters in korean, less than 15 characters in english), informal (Reddit/4chan style), follows 'translate' bool
     - "watermark": "@ho3_txle/tokkiyeah".
 
     2. "chatters":
@@ -38,7 +38,13 @@ def genearte_scenario(content, save: bool, filename: str, translate: bool = Fals
 
     Output: Valid JSON, double-quoted keys, no explanations, markdown, or extra text.
     **ATTENTION! you cannot print ``` , which is code distinguisher in message like ```json. and you have to change bad words to words that have similar pronounciations or shade particular part.
-    for example, fuck -> F--k, 씨발->C발,etc. and you have to seperate messages if the message has attachment(image), first message last image.
+    for example, fuck -> F--k, 씨발->C발,etc.
+
+    and when the messages contains both message and attachments, you have to sepearate each other sections, and the example is this:
+    {'{"name": "퍼리보는사나이","content": "낮선 천장이다", "timestamp": "25. 8. 18. PM 10:18", "attachments": [{ "url": "exmaple_image_url","content_type": "image/jpeg"}]}'}
+    -> {'{"name": "퍼리보는사나이","content": "낮선 천장이다","timestamp": "25. 8. 18. PM 10:18",}'}, {'{ "name": "퍼리보는사나이", "timestamp": "25. 8. 18. PM 10:18","content":"", "attachments": [ {"url": "exmaple_image_url", "content_type": "image/jpeg"}]}'},
+    YOU MUST PRINT ONLY JSON data and DO NOT CONTAIN ANY DECORATORS LIKE "```json" I SAID TWICE NEVER DO THAT.
+    print file into one line.
     """
 
     # ai-generation part

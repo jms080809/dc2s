@@ -3,8 +3,6 @@ import requests
 from io import BytesIO
 from PIL import Image, ImageDraw, ImageOps
 import numpy as np
-
-# moviepy.editor에서 모든 클래스를 가져옵니다. (권장 방식)
 from moviepy import *
 
 def generate_discord_chat_shorts(
@@ -29,7 +27,7 @@ def generate_discord_chat_shorts(
     # 💡 요소 사이의 수직 간격 정의
     AVATAR_USER_GAP = 30
     USER_MSG_GAP = 20
-    ATTACHMENT_SIZE = 500
+    ATTACHMENT_SIZE = 700
 
     # 폰트 크기
     TITLE_FONT_SIZE = 70
@@ -41,23 +39,26 @@ def generate_discord_chat_shorts(
     DEFAULT_SOUND_PATH = "./asset/sounds/discord-notification.mp3"
 
     # --- 2. 헬퍼 함수 ---
-    def make_attachment_image(url:str)->ImageClip:
+    def normalize_audio(audio_clip:AudioClip, target_db=-1.0)->AudioClip:
+        """오디오 클립을 지정된 dB 피크 레벨로 평준화(리미터처럼 사용)합니다."""
+        target_amplitude = 10**(target_db / 20.0)
+        current_max_amplitude = audio_clip.max_volume()
+        if current_max_amplitude == 0:
+            return audio_clip
+        factor = target_amplitude / current_max_amplitude
+        return audio_clip.with_volume_scaled(factor)
+    def make_attachment_image(url:str) -> ImageClip:
         try:
             response = requests.get(url)
             response.raise_for_status()
             img_data = BytesIO(response.content)
-            avatar_img = Image.open(img_data).convert("RGBA")
-            avatar_img = ImageOps.fit(avatar_img, (ATTACHMENT_SIZE, ATTACHMENT_SIZE), Image.Resampling.LANCZOS)
-            
-            mask = Image.new("L", (ATTACHMENT_SIZE, ATTACHMENT_SIZE), 0)
-            draw = ImageDraw.Draw(mask)
-            
-            avatar_img.putalpha(mask)
-            return ImageClip(np.array(avatar_img))
+            attachment_img = Image.open(img_data).convert("RGBA")
+            attachment_img = ImageOps.fit(attachment_img, (ATTACHMENT_SIZE, ATTACHMENT_SIZE), Image.Resampling.LANCZOS)
+                        
+            return ImageClip(np.array(attachment_img))
         except Exception as e:
             print(f"❌ attachment processing error: {url}, {e}")
             return ColorClip(size=(ATTACHMENT_SIZE, ATTACHMENT_SIZE), color=(0,0,0,0))
-
 
     def make_circle_image(url: str) -> ImageClip:
         """URL 이미지를 원형으로 마스킹하여 ImageClip으로 반환합니다."""
@@ -82,7 +83,7 @@ def generate_discord_chat_shorts(
         """하나의 메시지 데이터를 이미지 레이아웃에 맞는 장면으로 변환합니다."""
         duration = msg_data.get("duration", 2)
         username = msg_data["username"]
-        attachment = ""
+        attachment_src = ""
         scene_elements = []
 
         # 1. 아바타 클립 생성
@@ -125,11 +126,12 @@ def generate_discord_chat_shorts(
         content_clip = content_clip.with_duration(duration).with_position(("center", content_y))
         #attachment replacement
         try:
-            if msg_data["attachments"][0]:
-                attachment=msg_data["attachments"][0]
-                content_clip = make_attachment_image(attachment["url"])
-                content_clip = content_clip.with_duration(duration)
-        except:
+            if len(msg_data["attachments"])!=0:
+                attachment_src=msg_data["attachments"][0]["url"]
+                content_clip = make_attachment_image(attachment_src) or ColorClip(size=(ATTACHMENT_SIZE,ATTACHMENT_SIZE),color=(0,0,0,0))
+                content_clip = content_clip.with_position("center").with_duration(duration)
+        except Exception as e:
+            print(e)
             pass
 
         scene_elements.extend([avatar_clip, username_line_clip, content_clip])
@@ -140,15 +142,16 @@ def generate_discord_chat_shorts(
         sound_path = msg_data.get("sound", DEFAULT_SOUND_PATH)
         if os.path.exists(sound_path):
             try:
+                #if the sfx not in duration, sped up
                 audio = AudioFileClip(sound_path)
                 if audio.duration > duration:
                     audio=audio.with_speed_scaled(duration/audio.duration,duration)
+                    audio= normalize_audio(audio, target_db=-3.0)
                 scene = scene.with_audio(audio)
             except Exception as e:
                 print(f"❌ 사운드 처리 실패: {sound_path}, {e}")
         else:
             print(f"⚠️ 경고: 사운드 파일을 찾을 수 없습니다 - {sound_path}")
-            
         return scene
 
     # --- 3. 메인 로직 ---
@@ -198,7 +201,7 @@ def generate_discord_chat_shorts(
             codec="libx264",
             audio_codec="libmp3lame",
             threads=4,
-            preset="ultrafast"
+            preset="ultrafast",
         )
         print(f"✅ 영상 생성 완료: {output_path}")
     except Exception as e:
