@@ -23,7 +23,7 @@ def generate_discord_chat_shorts(
     
     # 레이아웃 설정
     SIDE_PADDING = 100
-    AVATAR_SIZE = 120  # 이미지를 참고하여 아바타 크기 조정
+    AVATAR_SIZE = 250  # 이미지를 참고하여 아바타 크기 조정
     # 💡 요소 사이의 수직 간격 정의
     AVATAR_USER_GAP = 30
     USER_MSG_GAP = 20

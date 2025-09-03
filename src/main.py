@@ -5,7 +5,7 @@ from dotenv import load_dotenv
 from shorts import generate_discord_chat_shorts
 import os
 import json
-
+import uuid
 
 load_dotenv("../.env")
 filename = os.getenv("filename")
@@ -18,8 +18,8 @@ if load_from_scenario_file:
 else:
     timezone = dt.timezone(dt.timedelta(hours=9))  # KST
 
-    after = dt.datetime(2025, 8, 18, 12 + 10, 16).astimezone(timezone)
-    before = dt.datetime(2025, 8,18, 12 + 10, 23).astimezone(timezone)
+    after = dt.datetime(2025, 8, 13, 12 + 2, 25).astimezone(timezone)
+    before = dt.datetime(2025, 8,14, 12 + 1, 8).astimezone(timezone)
 
     TOKEN = os.getenv("TOKEN")
     CHANNEL_ID = os.getenv("CHANNEL_ID")
@@ -29,4 +29,4 @@ else:
     # chat_data = ChatRawData(json.loads(chat_data))
     scenario = generate_scenario(content=chat_data.get_data(), save=True, filename=filename)
 
-generate_discord_chat_shorts(scenario=scenario, filename=filename,message_font="./asset/fonts/SejongGeulggot.ttf")
+generate_discord_chat_shorts(scenario=scenario, filename=filename+"_"+str(uuid.uuid1()),message_font="./asset/fonts/SejongGeulggot.ttf")

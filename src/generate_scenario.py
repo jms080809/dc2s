@@ -15,6 +15,7 @@ def generate_scenario(content, save: bool, filename: str, translate: bool = Fals
     sound_prompt_list = " | ".join(
         [f'"{os.path.join(root, f)}"' for root, dirs, files in os.walk(sound_dir) for f in files if not f.endswith(".Identifier")]
     )
+    print(sound_prompt_list)
     prompt = f"""
     You are a data transformation expert. Convert a JSON chat log into a valid JSON object with keys: "descriptions", "chatters", "contents".
 
@@ -31,7 +32,7 @@ def generate_scenario(content, save: bool, filename: str, translate: bool = Fals
 
     Rules:
     - Animation: Attachment → "scaleFade", <20 chars → "pop", >50 chars → "slideUp", system/bot → "none".
-    - Sound: you have to choose appropriate sounds according to chats. the list of sound is this:{sound_prompt_list} , default use is "{sound_dir}/discord-notification.mp3".
+    - Sound: you have to choose appropriate sounds according to context of chats. the list of sound is this:{sound_prompt_list} , default use is "{sound_dir}/discord-notification.mp3" but you have to avoid default use as you could.
     and you can designate like this:"{sound_dir}/*.mp3", and ignore .identifier files.
     - Duration: <20 chars → 1–1.5s, 20–50 chars → 2–2.5s, >50 chars → 3–3.5s, system/bot → 1s.
     - Language: If translate=false, keep original; if true, translate all (content, title).
