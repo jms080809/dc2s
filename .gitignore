@@ -1,6 +1,5 @@
 .env
 .venv
-*.mp3
 *.mp4
 .output/*
 .scenarios/

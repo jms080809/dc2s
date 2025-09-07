@@ -1,0 +1,266 @@
+{
+  "descriptions": {
+    "title": "Sib-Hal Moment",
+    "watermark": "@ho3_txle/tokkiyeah"
+  },
+  "chatters": {
+    "ho3_txle": {
+      "avatarURL": "https://cdn.discordapp.com/avatars/584620334242594824/bc4ced4da5911731629fb05c38b4fd87.png?size=128"
+    },
+    "퍼리보는사나이": {
+      "avatarURL": "https://cdn.discordapp.com/avatars/663290871323820032/9a6b19799d44ad8f9d5ba53927e07d19.png?size=128"
+    }
+  },
+  "contents": [
+    {
+      "username": "ho3_txle",
+      "content": "",
+      "timestamp": "23. 8. 23. PM 10:00",
+      "attachments": [
+        {
+          "url": "https://cdn.discordapp.com/attachments/812929875215253505/1143892407981707314/image.png?ex=68bc3052&is=68baded2&hm=4836590412d157bfba28b3581f3ff0a1cce469fb3d932f50b1b26a1280f1fb39&",
+          "media_type": "image/png"
+        }
+      ],
+      "sound": "./asset/sounds/discord-notification.mp3",
+      "effect": [],
+      "animation": "scaleFade",
+      "duration": 1.0
+    },
+    {
+      "username": "ho3_txle",
+      "content": "",
+      "timestamp": "23. 8. 23. PM 10:00",
+      "attachments": [
+        {
+          "url": "https://cdn.discordapp.com/attachments/812929875215253505/1143892515259416716/image.png?ex=68bc306c&is=68badeec&hm=5513b6954fe0569b9636fd56d8cbf750b4f56c99921180be7c81f91bd9e62f6b&",
+          "media_type": "image/png"
+        }
+      ],
+      "sound": "./asset/sounds/discord-notification.mp3",
+      "effect": [],
+      "animation": "scaleFade",
+      "duration": 1.0
+    },
+    {
+      "username": "ho3_txle",
+      "content": "",
+      "timestamp": "23. 8. 23. PM 10:01",
+      "attachments": [
+        {
+          "url": "https://cdn.discordapp.com/attachments/812929875215253505/1143892675288895539/-_nTMcBpb-E6k_-_894x503_-_4m47s.png?ex=68bc3092&is=68badf12&hm=8823f5af85d1817a325b11039ecb4093d9f3e53a327687b0a737c599f5fd359a&",
+          "media_type": "image/png"
+        }
+      ],
+      "sound": "./asset/sounds/discord-notification.mp3",
+      "effect": [],
+      "animation": "scaleFade",
+      "duration": 1.0
+    },
+    {
+      "username": "ho3_txle",
+      "content": "",
+      "timestamp": "23. 8. 23. PM 10:01",
+      "attachments": [
+        {
+          "url": "https://cdn.discordapp.com/attachments/812929875215253505/1143892731169607831/-_nTMcBpb-E6k_-_894x503_-_4m49s.png?ex=68bc309f&is=68badf1f&hm=3a4349207882f116fa4f5ca70a3f7ee5af534a6ae95d6f1c2ff4b56359825618&",
+          "media_type": "image/png"
+        }
+      ],
+      "sound": "./asset/sounds/discord-notification.mp3",
+      "effect": [],
+      "animation": "scaleFade",
+      "duration": 1.0
+    },
+    {
+      "username": "ho3_txle",
+      "content": "",
+      "timestamp": "23. 8. 23. PM 10:01",
+      "attachments": [],
+      "sound": "./asset/sounds/discord-notification.mp3",
+      "effect": [],
+      "animation": "pop",
+      "duration": 1.0
+    },
+    {
+      "username": "ho3_txle",
+      "content": "",
+      "timestamp": "23. 8. 23. PM 10:02",
+      "attachments": [
+        {
+          "url": "https://cdn.discordapp.com/attachments/812929875215253505/1143892916146798672/-_nTMcBpb-E6k_-_894x503_-_4m51s.png?ex=68bc30cb&is=68badf4b&hm=e15bd309dbdb2e52a9796279677ab899e0aeda4fc52f8689eafcc2739fa5a186&",
+          "media_type": "image/png"
+        }
+      ],
+      "sound": "./asset/sounds/discord-notification.mp3",
+      "effect": [],
+      "animation": "scaleFade",
+      "duration": 1.0
+    },
+    {
+      "username": "퍼리보는사나이",
+      "content": "마이크 못씀",
+      "timestamp": "23. 8. 23. PM 10:02",
+      "attachments": [],
+      "sound": "./asset/sounds/keyboard-meme.mp3",
+      "effect": [],
+      "animation": "pop",
+      "duration": 1.5
+    },
+    {
+      "username": "ho3_txle",
+      "content": "dd",
+      "timestamp": "23. 8. 23. PM 10:02",
+      "attachments": [],
+      "sound": "./asset/sounds/keyboard-meme.mp3",
+      "effect": [],
+      "animation": "pop",
+      "duration": 1.0
+    },
+    {
+      "username": "퍼리보는사나이",
+      "content": "잠깐만",
+      "timestamp": "23. 8. 23. PM 10:02",
+      "attachments": [],
+      "sound": "./asset/sounds/wait-wait-wait-what-the-hell-legend-sound .mp3",
+      "effect": [],
+      "animation": "pop",
+      "duration": 1.5
+    },
+    {
+      "username": "ho3_txle",
+      "content": "",
+      "timestamp": "23. 8. 23. PM 10:02",
+      "attachments": [
+        {
+          "url": "https://cdn.discordapp.com/attachments/812929875215253505/1143893038876344511/-_nTMcBpb-E6k_-_894x503_-_4m52s.png?ex=68bc30e8&is=68badf68&hm=df642527106ffa4147330c9a6f5f3f2d7d1404194d71605135ab622737da9cc5&",
+          "media_type": "image/png"
+        }
+      ],
+      "sound": "./asset/sounds/discord-notification.mp3",
+      "effect": [],
+      "animation": "scaleFade",
+      "duration": 1.0
+    },
+    {
+      "username": "ho3_txle",
+      "content": "",
+      "timestamp": "23. 8. 23. PM 10:02",
+      "attachments": [
+        {
+          "url": "https://cdn.discordapp.com/attachments/812929875215253505/1143893080580308992/-_nTMcBpb-E6k_-_894x503_-_4m54s.png?ex=68bc30f2&is=68badf72&hm=0471bbd4459ad619e45ed92057d022238297d88208e727a51f6606922a3c0993&",
+          "media_type": "image/png"
+        }
+      ],
+      "sound": "./asset/sounds/discord-notification.mp3",
+      "effect": [],
+      "animation": "scaleFade",
+      "duration": 1.0
+    },
+    {
+      "username": "ho3_txle",
+      "content": "",
+      "timestamp": "23. 8. 23. PM 10:02",
+      "attachments": [
+        {
+          "url": "https://cdn.discordapp.com/attachments/812929875215253505/1143893110175314010/-_nTMcBpb-E6k_-_894x503_-_4m55s.png?ex=68bc30f9&is=68badf79&hm=408a515e0634350597240af0714762e6e33233130fb622511d39739c17a63260&",
+          "media_type": "image/png"
+        }
+      ],
+      "sound": "./asset/sounds/discord-notification.mp3",
+      "effect": [],
+      "animation": "scaleFade",
+      "duration": 1.0
+    },
+    {
+      "username": "ho3_txle",
+      "content": "",
+      "timestamp": "23. 8. 23. PM 10:03",
+      "attachments": [
+        {
+          "url": "https://cdn.discordapp.com/attachments/812929875215253505/1143893202416443462/-_nTMcBpb-E6k_-_894x503_-_4m57s.png?ex=68bc310f&is=68badf8f&hm=f505e00ef1899e551212c5b95ff4d407b826fcac9ce38ffce391d22d17a02c82&",
+          "media_type": "image/png"
+        }
+      ],
+      "sound": "./asset/sounds/discord-notification.mp3",
+      "effect": [],
+      "animation": "scaleFade",
+      "duration": 1.0
+    },
+    {
+      "username": "퍼리보는사나이",
+      "content": "ㅋㅋㅋㅋ",
+      "timestamp": "23. 8. 23. PM 10:03",
+      "attachments": [],
+      "sound": "./asset/sounds/laughing-dog-meme (mp3cut.net).mp3",
+      "effect": [],
+      "animation": "pop",
+      "duration": 1.5
+    },
+    {
+      "username": "ho3_txle",
+      "content": "Sib-Hal",
+      "timestamp": "23. 8. 23. PM 10:03",
+      "attachments": [],
+      "sound": "./asset/sounds/emoji-scream.mp3",
+      "effect": [],
+      "animation": "pop",
+      "duration": 1.5
+    },
+    {
+      "username": "퍼리보는사나이",
+      "content": "",
+      "timestamp": "23. 8. 23. PM 10:04",
+      "attachments": [
+        {
+          "url": "https://cdn.discordapp.com/attachments/812929875215253505/1143893466108149861/Anthro_vixen_colored.png?ex=68bc314e&is=68badfce&hm=9bd846a8f6b5b9db89a5cdf6995a3f95b3dda7eb5cce09092ef35573015b8a24&",
+          "media_type": "image/png"
+        }
+      ],
+      "sound": "./asset/sounds/zelda_-botw-item-get-sound-effect_360p-online-audio-converter.mp3",
+      "effect": [],
+      "animation": "scaleFade",
+      "duration": 1.0
+    },
+    {
+      "username": "ho3_txle",
+      "content": "저게 진심으로 좋은거냐",
+      "timestamp": "23. 8. 23. PM 10:04",
+      "attachments": [],
+      "sound": "./asset/sounds/why-are.mp3",
+      "effect": [],
+      "animation": "slideUp",
+      "duration": 3.0
+    },
+    {
+      "username": "퍼리보는사나이",
+      "content": "ㅋㅋㅋㅋㅋㅋ",
+      "timestamp": "23. 8. 23. PM 10:04",
+      "attachments": [],
+      "sound": "./asset/sounds/laughing-dog-meme (mp3cut.net).mp3",
+      "effect": [],
+      "animation": "pop",
+      "duration": 1.5
+    },
+    {
+      "username": "퍼리보는사나이",
+      "content": "축하합니다",
+      "timestamp": "23. 8. 23. PM 10:04",
+      "attachments": [],
+      "sound": "./asset/sounds/siuuuuu.mp3",
+      "effect": [],
+      "animation": "pop",
+      "duration": 1.5
+    },
+    {
+      "username": "퍼리보는사나이",
+      "content": "당신은 심연을 보았습니다",
+      "timestamp": "23. 8. 23. PM 10:04",
+      "attachments": [],
+      "sound": "./asset/sounds/rezero-kara-hajimeru-isekai-seikatsu-creepy-sound_mMcw4Ln.mp3",
+      "effect": [],
+      "animation": "slideUp",
+      "duration": 3.0
+    }
+  ]
+}

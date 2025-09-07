@@ -1,0 +1,326 @@
+{
+  "descriptions": {
+    "title": "Gun Market",
+    "watermark": "@ho3_txle/tokkiyeah"
+  },
+  "chatters": {
+    "퍼리보는사나이": {
+      "avatarURL": "https://cdn.discordapp.com/avatars/663290871323820032/9a6b19799d44ad8f9d5ba53927e07d19.png?size=128"
+    },
+    "ho3_txle": {
+      "avatarURL": "https://cdn.discordapp.com/avatars/584620334242594824/bc4ced4da5911731629fb05c38b4fd87.png?size=128"
+    }
+  },
+  "contents": [
+    {
+      "username": "ho3_txle",
+      "content": "",
+      "timestamp": "25. 8. 6. PM 12:14",
+      "attachments": [
+        {
+          "url": "https://cdn.discordapp.com/attachments/812929875215253505/1402489918177149020/1754450041688.gif?ex=68be4a05&is=68bcf885&hm=d49d5adb4bc802d093bc77acf8b047fedbed014b616f2c152ed0a18ecb9ded7e&",
+          "media_type": "image/gif"
+        }
+      ],
+      "sound": "./asset/sounds/discord-notification.mp3",
+      "effect": [],
+      "animation": "scaleFade",
+      "duration": 1.0
+    },
+    {
+      "username": "퍼리보는사나이",
+      "content": "또 지같은것만",
+      "timestamp": "25. 8. 6. PM 12:18",
+      "attachments": [],
+      "sound": "./asset/sounds/discord-notification.mp3",
+      "effect": [],
+      "animation": "pop",
+      "duration": 1.2
+    },
+    {
+      "username": "ho3_txle",
+      "content": "커엽죠? 인정 안하면 매군노",
+      "timestamp": "25. 8. 6. PM 1:40",
+      "attachments": [],
+      "sound": "./asset/sounds/heheheha.mp3",
+      "effect": [],
+      "animation": "pop",
+      "duration": 1.5
+    },
+    {
+      "username": "퍼리보는사나이",
+      "content": "그냥 매군노 하겠습니다",
+      "timestamp": "25. 8. 6. PM 1:40",
+      "attachments": [],
+      "sound": "./asset/sounds/laughing-dog-meme.mp3",
+      "effect": [],
+      "animation": "pop",
+      "duration": 1.5
+    },
+    {
+      "username": "ho3_txle",
+      "content": "군을 팔아?",
+      "timestamp": "25. 8. 6. PM 1:46",
+      "attachments": [],
+      "sound": "./asset/sounds/why-are.mp3",
+      "effect": [],
+      "animation": "pop",
+      "duration": 1.2
+    },
+    {
+      "username": "퍼리보는사나이",
+      "content": "노는 팔았습니다",
+      "timestamp": "25. 8. 6. PM 1:46",
+      "attachments": [],
+      "sound": "./asset/sounds/muhehehe.mp3",
+      "effect": [],
+      "animation": "pop",
+      "duration": 1.2
+    },
+    {
+      "username": "ho3_txle",
+      "content": "욘변이다 욘변",
+      "timestamp": "25. 8. 6. PM 1:46",
+      "attachments": [],
+      "sound": "./asset/sounds/vine-boom.mp3",
+      "effect": [],
+      "animation": "pop",
+      "duration": 1.2
+    },
+    {
+      "username": "ho3_txle",
+      "content": "노는 버리고 배만 남으면 배가 어디로 갈까?",
+      "timestamp": "25. 8. 6. PM 1:47",
+      "attachments": [],
+      "sound": "./asset/sounds/amongus-suspicious.mp3",
+      "effect": [],
+      "animation": "slideUp",
+      "duration": 3.0
+    },
+    {
+      "username": "퍼리보는사나이",
+      "content": "니 장기 앞 지방으로",
+      "timestamp": "25. 8. 6. PM 1:47",
+      "attachments": [],
+      "sound": "./asset/sounds/emotional-damage-meme.mp3",
+      "effect": [],
+      "animation": "pop",
+      "duration": 1.5
+    },
+    {
+      "username": "ho3_txle",
+      "content": "장기하죠?",
+      "timestamp": "25. 8. 6. PM 1:47",
+      "attachments": [],
+      "sound": "./asset/sounds/oh-ma-gaud-vine.mp3",
+      "effect": [],
+      "animation": "pop",
+      "duration": 1.2
+    },
+    {
+      "username": "퍼리보는사나이",
+      "content": "그건 니생각이고~",
+      "timestamp": "25. 8. 6. PM 1:47",
+      "attachments": [],
+      "sound": "./asset/sounds/rehehehe.mp3",
+      "effect": [],
+      "animation": "pop",
+      "duration": 1.5
+    },
+    {
+      "username": "ho3_txle",
+      "content": "",
+      "timestamp": "25. 8. 6. PM 1:47",
+      "attachments": [
+        {
+          "url": "https://cdn.discordapp.com/attachments/812929875215253505/1402513439871598602/Screenshot_20250628_214709_Discord.jpg?ex=68be5fed&is=68bd0e6d&hm=012f63cb836762fe7eabfc1ee65220c75d6d329ee364ba5857cbea11d699feff&",
+          "media_type": "image/jpeg"
+        }
+      ],
+      "sound": "./asset/sounds/discord-notification.mp3",
+      "effect": [],
+      "animation": "scaleFade",
+      "duration": 1.0
+    },
+    {
+      "username": "퍼리보는사나이",
+      "content": "아니~",
+      "timestamp": "25. 8. 6. PM 1:47",
+      "attachments": [],
+      "sound": "./asset/sounds/wrong_5.mp3",
+      "effect": [],
+      "animation": "pop",
+      "duration": 1.2
+    },
+    {
+      "username": "ho3_txle",
+      "content": "홍삼이 너무 써서 달아져버렸다 ;;",
+      "timestamp": "25. 8. 6. PM 5:02",
+      "attachments": [],
+      "sound": "./asset/sounds/ack.mp3",
+      "effect": [],
+      "animation": "slideUp",
+      "duration": 3.0
+    },
+    {
+      "username": "퍼리보는사나이",
+      "content": ";;",
+      "timestamp": "25. 8. 6. PM 5:02",
+      "attachments": [],
+      "sound": "./asset/sounds/emoji-scream.mp3",
+      "effect": [],
+      "animation": "pop",
+      "duration": 1.0
+    },
+    {
+      "username": "ho3_txle",
+      "content": "붉은 그녀의 m21 삼각대",
+      "timestamp": "25. 8. 6. PM 5:03",
+      "attachments": [],
+      "sound": "./asset/sounds/zelda_-botw-item-get-sound-effect_360p-online-audio-converter.mp3",
+      "effect": [],
+      "animation": "pop",
+      "duration": 1.5
+    },
+    {
+      "username": "ho3_txle",
+      "content": "원래 사과더 붉을 수록 더 달대닪아",
+      "timestamp": "25. 8. 6. PM 5:04",
+      "attachments": [],
+      "sound": "./asset/sounds/pyrocynical-chinese-meme-original-mp3cut.mp3",
+      "effect": [],
+      "animation": "slideUp",
+      "duration": 3.0
+    },
+    {
+      "username": "ho3_txle",
+      "content": "",
+      "timestamp": "25. 8. 6. PM 5:04",
+      "attachments": [
+        {
+          "url": "https://cdn.discordapp.com/attachments/812929875215253505/1402563072589172757/Screenshot_20250716_085522_Chrome.jpg?ex=68bde566&is=68bc93e6&hm=fd186b60d07532f28c25ed7c992494bb6cb77d5ad35daf19174ef7820bc6a485&",
+          "media_type": "image/jpeg"
+        }
+      ],
+      "sound": "./asset/sounds/discord-notification.mp3",
+      "effect": [],
+      "animation": "scaleFade",
+      "duration": 1.0
+    },
+    {
+      "username": "퍼리보는사나이",
+      "content": "그녀의 붉은 사과같은 엉덩이",
+      "timestamp": "25. 8. 6. PM 5:05",
+      "attachments": [],
+      "sound": "./asset/sounds/goofy-ahh-laugh-meme.mp3",
+      "effect": [],
+      "animation": "slideUp",
+      "duration": 3.0
+    },
+    {
+      "username": "ho3_txle",
+      "content": "(진지)",
+      "timestamp": "25. 8. 6. PM 5:05",
+      "attachments": [],
+      "sound": "./asset/sounds/dark-souls-you-died-sound-effect_hm5sYFG.mp3",
+      "effect": [],
+      "animation": "pop",
+      "duration": 1.0
+    },
+    {
+      "username": "퍼리보는사나이",
+      "content": "그녀의 포신이 붉어질 정도로 달아올랐다",
+      "timestamp": "25. 8. 6. PM 5:05",
+      "attachments": [],
+      "sound": "./asset/sounds/eorimdoeobsda-am.mp3",
+      "effect": [],
+      "animation": "slideUp",
+      "duration": 3.5
+    },
+    {
+      "username": "ho3_txle",
+      "content": "그?녀 의 포?신이 붉1어졌다",
+      "timestamp": "25. 8. 6. PM 5:16",
+      "attachments": [],
+      "sound": "./asset/sounds/glass-breaking-sound-effect_wLZSIYn (mp3cut.net).mp3",
+      "effect": [],
+      "animation": "slideUp",
+      "duration": 3.0
+    },
+    {
+      "username": "퍼리보는사나이",
+      "content": "후타 ㄷㄷ",
+      "timestamp": "25. 8. 6. PM 5:16",
+      "attachments": [],
+      "sound": "./asset/sounds/bone-crack-meme.mp3",
+      "effect": [],
+      "animation": "pop",
+      "duration": 1.2
+    },
+    {
+      "username": "ho3_txle",
+      "content": "",
+      "timestamp": "25. 8. 6. PM 5:17",
+      "attachments": [
+        {
+          "url": "https://cdn.discordapp.com/attachments/812929875215253505/1402566127678263296/Screenshot_20250722_081130_Chrome.jpg?ex=68bde83f&is=68bc96bf&hm=fb0fa028e1fdf9f9fcb3f44191b512eb4b89a4cae140570d1a3eb385539ca130&",
+          "media_type": "image/jpeg"
+        }
+      ],
+      "sound": "./asset/sounds/discord-notification.mp3",
+      "effect": [],
+      "animation": "scaleFade",
+      "duration": 1.0
+    },
+    {
+      "username": "ho3_txle",
+      "content": "그?녀",
+      "timestamp": "25. 8. 6. PM 5:17",
+      "attachments": [],
+      "sound": "./asset/sounds/voice_sans.mp3",
+      "effect": [],
+      "animation": "pop",
+      "duration": 1.0
+    },
+    {
+      "username": "퍼리보는사나이",
+      "content": "에라이",
+      "timestamp": "25. 8. 6. PM 5:17",
+      "attachments": [],
+      "sound": "./asset/sounds/wet-fart-meme.mp3",
+      "effect": [],
+      "animation": "pop",
+      "duration": 1.2
+    },
+    {
+      "username": "ho3_txle",
+      "content": "엌ㅋㅋㅋㅋ",
+      "timestamp": "25. 8. 6. PM 5:17",
+      "attachments": [],
+      "sound": "./asset/sounds/baby-launghing-bass-boosted (mp3cut.net).mp3",
+      "effect": [],
+      "animation": "pop",
+      "duration": 1.2
+    },
+    {
+      "username": "ho3_txle",
+      "content": "적절한 비유",
+      "timestamp": "25. 8. 6. PM 5:17",
+      "attachments": [],
+      "sound": "./asset/sounds/yesyesyes_m53eQM0.mp3",
+      "effect": [],
+      "animation": "pop",
+      "duration": 1.5
+    },
+    {
+      "username": "퍼리보는사나이",
+      "content": "ㅈㄹ",
+      "timestamp": "25. 8. 6. PM 5:17",
+      "attachments": [],
+      "sound": "./asset/sounds/filthy_frank_-_nobody_gives_a_shitwww.mp3",
+      "effect": [],
+      "animation": "pop",
+      "duration": 1.0
+    }
+  ]
+}
