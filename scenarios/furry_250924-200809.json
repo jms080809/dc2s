@@ -1,0 +1,141 @@
+{
+  "descriptions": {
+    "title": "코믹월드 야생",
+    "watermark": "@ho3_txle/tokkiyeah"
+  },
+  "chatters": {
+    "ho3_txle": {
+      "avatarURL": "https://cdn.discordapp.com/avatars/584620334242594824/24c3d613b2676265daf992665e403b95.png?size=128"
+    },
+    "퍼리보는사나이": {
+      "avatarURL": "https://cdn.discordapp.com/avatars/663290871323820032/a5d59fe8f4454ec9c1962c2561b060f9.png?size=128"
+    }
+  },
+  "contents": [
+    {
+      "username": "퍼리보는사나이",
+      "content": "나 이거 예전에 봤는데",
+      "timestamp": "25. 6. 7. PM 12:33",
+      "attachments": [],
+      "sound": "./asset/sounds/oh-ma-gaud-vine.mp3",
+      "effect": [],
+      "animation": "pop",
+      "duration": 1.2
+    },
+    {
+      "username": "퍼리보는사나이",
+      "content": "ㅋㅋ",
+      "timestamp": "25. 6. 7. PM 12:33",
+      "attachments": [],
+      "sound": "./asset/sounds/heheheha.mp3",
+      "effect": [],
+      "animation": "pop",
+      "duration": 1.1
+    },
+    {
+      "username": "퍼리보는사나이",
+      "content": "지금 코믹월드임 ㅋ",
+      "timestamp": "25. 6. 7. PM 12:33",
+      "attachments": [],
+      "sound": "./asset/sounds/discord-sounds.mp3",
+      "effect": [],
+      "animation": "pop",
+      "duration": 1.3
+    },
+    {
+      "username": "ho3_txle",
+      "content": "도대체 언재?",
+      "timestamp": "25. 6. 7. PM 12:35",
+      "attachments": [],
+      "sound": "./asset/sounds/why-are.mp3",
+      "effect": [],
+      "animation": "pop",
+      "duration": 1.4
+    },
+    {
+      "username": "퍼리보는사나이",
+      "content": "C발 사람 X나많아",
+      "timestamp": "25. 6. 7. PM 12:38",
+      "attachments": [],
+      "sound": "./asset/sounds/amongus-suspicious.mp3",
+      "effect": [],
+      "animation": "pop",
+      "duration": 1.5
+    },
+    {
+      "username": "ho3_txle",
+      "content": "ㅋㅋ",
+      "timestamp": "25. 6. 7. PM 12:40",
+      "attachments": [],
+      "sound": "./asset/sounds/goofy-ahh-laugh-meme.mp3",
+      "effect": [],
+      "animation": "pop",
+      "duration": 1.1
+    },
+    {
+      "username": "ho3_txle",
+      "content": "거기서 동인지좀 사오셈",
+      "timestamp": "25. 6. 7. PM 12:40",
+      "attachments": [],
+      "sound": "./asset/sounds/john-cena-chinese-meme.mp3",
+      "effect": [],
+      "animation": "pop",
+      "duration": 2.1
+    },
+    {
+      "username": "ho3_txle",
+      "content": "택배로 부쳐줘",
+      "timestamp": "25. 6. 7. PM 12:40",
+      "attachments": [],
+      "sound": "./asset/sounds/applepay.mp3",
+      "effect": [],
+      "animation": "pop",
+      "duration": 1.8
+    },
+    {
+      "username": "퍼리보는사나이",
+      "content": "Xㄹㄴ",
+      "timestamp": "25. 6. 7. PM 12:45",
+      "attachments": [],
+      "sound": "./asset/sounds/wet-fart-meme.mp3",
+      "effect": [],
+      "animation": "pop",
+      "duration": 1.2
+    },
+    {
+      "username": "ho3_txle",
+      "content": "힝",
+      "timestamp": "25. 6. 7. PM 12:49",
+      "attachments": [],
+      "sound": "./asset/sounds/muhehehe.mp3",
+      "effect": [],
+      "animation": "pop",
+      "duration": 1.1
+    },
+    {
+      "username": "퍼리보는사나이",
+      "content": "",
+      "timestamp": "25. 6. 7. PM 12:59",
+      "attachments": [
+        {
+          "url": "https://cdn.discordapp.com/attachments/812929875215253505/1380758127414345788/20250607_125933.jpg?ex=68d4be36&is=68d36cb6&hm=c70e91ca85431479f1b4b24a1c113cd5c2624a4aa6aaa10e8822057442770a81&",
+          "media_type": "image/jpeg"
+        }
+      ],
+      "sound": "./asset/sounds/vine-boom.mp3",
+      "effect": [],
+      "animation": "scaleFade",
+      "duration": 2.0
+    },
+    {
+      "username": "ho3_txle",
+      "content": "도데채 뭘까 그곳은",
+      "timestamp": "25. 6. 7. PM 1:08",
+      "attachments": [],
+      "sound": "./asset/sounds/questioning-sound-effect.mp3",
+      "effect": [],
+      "animation": "slideUp",
+      "duration": 2.3
+    }
+  ]
+}

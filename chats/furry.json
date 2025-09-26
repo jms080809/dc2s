@@ -2,107 +2,54 @@
   "chatters": {
     "ho3_txle": {
       "name": "ho3_txle",
-      "avatar": "https://cdn.discordapp.com/avatars/584620334242594824/bc4ced4da5911731629fb05c38b4fd87.png?size=128"
+      "avatar": "https://cdn.discordapp.com/avatars/584620334242594824/24c3d613b2676265daf992665e403b95.png?size=128"
     },
-    "퍼리보는사나이": {
-      "name": "퍼리보는사나이",
-      "avatar": "https://cdn.discordapp.com/avatars/663290871323820032/9a6b19799d44ad8f9d5ba53927e07d19.png?size=128"
+    "몬랑": {
+      "name": "몬랑",
+      "avatar": "https://cdn.discordapp.com/avatars/921651663645843456/d7c31c4cdf8034389618a57190ea5bf3.png?size=128"
     }
   },
   "contents": [
     {
-      "name": "ho3_txle",
-      "content": "아무리 생각해도 곤무원은 라노벨 개쩌는  직업인듯 ㅇㅇ",
-      "timestamp": "25. 8. 4. PM 5:32",
-      "attachments": []
-    },
-    {
-      "name": "퍼리보는사나이",
-      "content": ";;",
-      "timestamp": "25. 8. 4. PM 7:30",
-      "attachments": []
-    },
-    {
-      "name": "퍼리보는사나이",
-      "content": "곤무원 하까마까~",
-      "timestamp": "25. 8. 4. PM 7:30",
+      "name": "몬랑",
+      "content": "https://youtu.be/eOpJOVAt5Y4?si=_u4CkxHrIm2d2iGR",
+      "timestamp": "25. 9. 25. AM 1:37",
       "attachments": []
     },
     {
       "name": "ho3_txle",
-      "content": "우리도 언젠가 힌슈얌꼬래처람 헤암쳐",
-      "timestamp": "25. 8. 5. PM 1:59",
+      "content": "뭐노",
+      "timestamp": "25. 9. 25. AM 1:37",
       "attachments": []
     },
     {
-      "name": "퍼리보는사나이",
-      "content": "ㅇㅈㄹ",
-      "timestamp": "25. 8. 5. PM 1:59",
-      "attachments": []
-    },
-    {
-      "name": "ho3_txle",
-      "content": "뚜려움 읍시 이 널븐 세상",
-      "timestamp": "25. 8. 5. PM 1:59",
+      "name": "몬랑",
+      "content": "갑자기 알고리즘에 뜸",
+      "timestamp": "25. 9. 25. AM 1:37",
       "attachments": []
     },
     {
       "name": "ho3_txle",
-      "content": "사라갈쑤 이낄~",
-      "timestamp": "25. 8. 5. PM 1:59",
-      "attachments": []
-    },
-    {
-      "name": "퍼리보는사나이",
-      "content": "뭔노래임",
-      "timestamp": "25. 8. 5. PM 1:59",
+      "content": "그걸 외 여기에 올려",
+      "timestamp": "25. 9. 25. AM 1:37",
       "attachments": []
     },
     {
       "name": "ho3_txle",
-      "content": "찾아보셈 등신앙",
-      "timestamp": "25. 8. 5. PM 2:00",
+      "content": "아쎄이 기열!",
+      "timestamp": "25. 9. 25. AM 1:37",
       "attachments": []
     },
     {
-      "name": "퍼리보는사나이",
-      "content": "시렁",
-      "timestamp": "25. 8. 5. PM 2:00",
-      "attachments": []
-    },
-    {
-      "name": "ho3_txle",
-      "content": "ㅠ",
-      "timestamp": "25. 8. 5. PM 2:00",
+      "name": "몬랑",
+      "content": "https://tenor.com/view/%EC%98%A4%EB%8F%84%ED%95%B4%EB%B3%91-%EC%95%84%EC%8E%84%EC%9D%B4-%ED%95%B4%EB%B3%91-%EA%B8%B0%ED%95%A9-%ED%95%A8%EB%B0%95%EC%95%84-gif-16254398187683943000",
+      "timestamp": "25. 9. 25. AM 1:37",
       "attachments": []
     },
     {
       "name": "ho3_txle",
-      "content": "무1시무1시한 사진",
-      "timestamp": "25. 8. 5. PM 2:01",
-      "attachments": []
-    },
-    {
-      "name": "ho3_txle",
-      "content": "",
-      "timestamp": "25. 8. 5. PM 2:01",
-      "attachments": [
-        {
-          "url": "https://cdn.discordapp.com/attachments/812929875215253505/1402154440680669194/Screenshot_20250804_145458.jpg?ex=68be6315&is=68bd1195&hm=ac5f8523ab762dc169d6a60d6638a056364858d895b6d2b017824560853efeb8&",
-          "content_type": "image/jpeg"
-        }
-      ]
-    },
-    {
-      "name": "퍼리보는사나이",
-      "content": "어후 씨발 무시무시하다",
-      "timestamp": "25. 8. 5. PM 2:01",
-      "attachments": []
-    },
-    {
-      "name": "ho3_txle",
-      "content": "따흐흑",
-      "timestamp": "25. 8. 5. PM 3:51",
+      "content": "윽액윽 악 해변님;;",
+      "timestamp": "25. 9. 25. AM 1:38",
       "attachments": []
     }
   ]

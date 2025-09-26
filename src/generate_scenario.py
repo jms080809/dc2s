@@ -4,8 +4,8 @@ import os
 import utils
 from datetime import datetime as dt
 from dotenv import load_dotenv
-
-
+import random
+import numpy as np
 @utils.debug_print
 def generate_scenario(content, save: bool, filename: str, translate: bool = False):
     load_dotenv("../env")
@@ -28,22 +28,23 @@ def generate_scenario(content, save: bool, filename: str, translate: bool = Fals
     - Values: object with "avatarURL" key only, no duplicate URLs.
 
     3. "contents" array:
-    - Each item: "username", "content" (mask private info like 김정환→김XX, exclude celebrities), "timestamp", "attachments" (first with "url", "media_type"), "sound" (from {sound_prompt_list}, default: "{sound_dir}/discord-notification.mp3"), "effect" (from {effect_list}), "animation" (from {animation_list}), "duration".
+    - Each item: "username", "content" (mask private info like 김정환→김XX, exclude celebrities), "timestamp", "attachments" (first with "url", "content_type"), "sound" (from {sound_prompt_list}, default: "{sound_dir}/discord-notification.mp3"), "effect" (from {effect_list}), "animation" (from {animation_list}), "duration".
 
     Rules:
     - Animation: Attachment → "scaleFade", <20 chars → "pop", >50 chars → "slideUp", system/bot → "none".
-    - Sound: you have to choose appropriate sounds according to context of chats. the list of sound is this:{sound_prompt_list} , default use is "{sound_dir}/discord-notification.mp3" but you have to avoid default use as you could.
-    and you can designate like this:"{sound_dir}/*.mp3", and ignore .identifier files.
+    - Sound: you have to choose appropriate sound file according to context of chats. the given list of sound is this:{sound_prompt_list} , default use is "{sound_dir}/discord-notification.mp3" but you have to avoid default use as you could.
+    and you can designate like this:"{sound_dir}/*.mp3", and ignore files that are not audio files like .identifier,aup3, etc., except audio files like mp3 etc.
     - Duration: <20 chars → 1–1.5s, 20–50 chars → 2–2.5s, >50 chars → 3–3.5s, system/bot → 1s.
     - Language: If translate=false, keep original; if true, translate all (content, title).
 
     Output: Valid JSON, double-quoted keys, no explanations, markdown, or extra text.
-    **ATTENTION! you cannot print ``` , which is code distinguisher in message like ```json. and you have to change bad words to words that have similar pronounciations or shade particular part.
+    **ATTENTION! you cannot print ``` , which is code distinguisher in message like ```json. and you have to change bad words or insult to words that have similar pronounciations or shade particular part.
     for example, fuck -> F--k, 씨발->C발,etc.
-
-    and when the messages contains both message and attachments, you have to sepearate each other sections, and the example is this:
-    {'{"name": "퍼리보는사나이","content": "낮선 천장이다", "timestamp": "25. 8. 18. PM 10:18", "attachments": [{ "url": "exmaple_image_url","content_type": "image/jpeg"}]}'}
-    -> {'{"name": "퍼리보는사나이","content": "낮선 천장이다","timestamp": "25. 8. 18. PM 10:18",}'}, {'{ "name": "퍼리보는사나이", "timestamp": "25. 8. 18. PM 10:18","content":"", "attachments": [ {"url": "exmaple_image_url", "content_type": "image/jpeg"}]}'},
+    you have to shade private infos like name, telephone number, etc.
+    and when the messages contains both message and attachments, you have to separate each other sections, and the example is this:
+    {'{"name": "퍼리보는사나이","content": "낮선 천장이다", "timestamp": "25. 8. 18. PM 10:18", "attachments": [{ "url": "exmaple_image_url","content_type": "example_content_type"}]}'}
+    -> first example is about images:{'{"name": "퍼리보는사나이","content": "낮선 천장이다","timestamp": "25. 8. 18. PM 10:18",}'} {'{ "name": "퍼리보는사나이", "timestamp": "25. 8. 18. PM 10:18","content":"", "attachments": [ {"url": "exmaple_image_url", "content_type": "image"}]}'},
+    -> second example is about gif:{'{"name": "퍼리보는사나이","content": "낮선 천장이다 https://example.com/...gif","timestamp": "25. 8. 18. PM 10:18",}'} => {'{"name": "퍼리보는사나이","content": "낮선 천장이다","timestamp": "25. 8. 18. PM 10:18",},{ "name": "퍼리보는사나이", "timestamp": "25. 8. 18. PM 10:18",content:"","attachments":[{"url":"https://example.com/...gif","content_type":"gif"}]}'},
     YOU MUST PRINT ONLY JSON data and DO NOT CONTAIN ANY DECORATORS LIKE "```json" I SAID TWICE NEVER DO THAT.
     print file into one line.
     """

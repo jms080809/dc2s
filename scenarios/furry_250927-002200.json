@@ -1,0 +1,96 @@
+{
+  "descriptions": {
+    "title": "알고 뜬 영상",
+    "watermark": "@ho3_txle/tokkiyeah"
+  },
+  "chatters": {
+    "ho3_txle": {
+      "avatarURL": "https://cdn.discordapp.com/avatars/584620334242594824/24c3d613b2676265daf992665e403b95.png?size=128"
+    },
+    "몬랑": {
+      "avatarURL": "https://cdn.discordapp.com/avatars/921651663645843456/d7c31c4cdf8034389618a57190ea5bf3.png?size=128"
+    }
+  },
+  "contents": [
+    {
+      "username": "몬랑",
+      "content": "",
+      "timestamp": "25. 9. 25. AM 1:37",
+      "attachments": [
+        {
+          "url": "https://youtu.be/eOpJOVAt5Y4?si=_u4CkxHrIm2d2iGR",
+          "media_type": "video"
+        }
+      ],
+      "sound": "./asset/sounds/zelda_-botw-item-get-sound-effect_360p-online-audio-converter.mp3",
+      "effect": [],
+      "animation": "scaleFade",
+      "duration": 1.2
+    },
+    {
+      "username": "ho3_txle",
+      "content": "뭐노",
+      "timestamp": "25. 9. 25. AM 1:37",
+      "attachments": [],
+      "sound": "./asset/sounds/oh-ma-gaud-vine.mp3",
+      "effect": [],
+      "animation": "pop",
+      "duration": 1.1
+    },
+    {
+      "username": "몬랑",
+      "content": "갑자기 알고리즘에 뜸",
+      "timestamp": "25. 9. 25. AM 1:37",
+      "attachments": [],
+      "sound": "./asset/sounds/amongus-suspicious.mp3",
+      "effect": [],
+      "animation": "pop",
+      "duration": 1.5
+    },
+    {
+      "username": "ho3_txle",
+      "content": "그걸 외 여기에 올려",
+      "timestamp": "25. 9. 25. AM 1:37",
+      "attachments": [],
+      "sound": "./asset/sounds/ack.mp3",
+      "effect": [],
+      "animation": "pop",
+      "duration": 1.4
+    },
+    {
+      "username": "ho3_txle",
+      "content": "아쎄이 기열!",
+      "timestamp": "25. 9. 25. AM 1:37",
+      "attachments": [],
+      "sound": "./asset/sounds/heheheha.mp3",
+      "effect": [],
+      "animation": "pop",
+      "duration": 1.1
+    },
+    {
+      "username": "몬랑",
+      "content": "",
+      "timestamp": "25. 9. 25. AM 1:37",
+      "attachments": [
+        {
+          "url": "https://tenor.com/view/%EC%98%A4%EB%8F%84%ED%95%B4%EB%B3%91-%EC%95%84%EC%8E%84%EC%9D%B4-%ED%95%B4%EB%B3%91-%EA%B8%B0%ED%95%A9-%ED%95%A8%EB%B0%95%EC%95%84-gif-16254398187683943000",
+          "media_type": "image/gif"
+        }
+      ],
+      "sound": "./asset/sounds/vine-boom.mp3",
+      "effect": [],
+      "animation": "scaleFade",
+      "duration": 1.2
+    },
+    {
+      "username": "ho3_txle",
+      "content": "윽액윽 악 해변님;;",
+      "timestamp": "25. 9. 25. AM 1:38",
+      "attachments": [],
+      "sound": "./asset/sounds/wet-fart-meme.mp3",
+      "effect": [],
+      "animation": "pop",
+      "duration": 1.3
+    }
+  ]
+}

@@ -18,8 +18,8 @@ if load_from_scenario_file:
 else:
     timezone = dt.timezone(dt.timedelta(hours=9))  # KST
 
-    after = dt.datetime(2025, 8, 4, 12+5, 31).astimezone(timezone)
-    before = dt.datetime(2025, 8, 5, 12 + 3, 53).astimezone(timezone)
+    after = dt.datetime(2025, 9,25, 1, 36).astimezone(timezone)
+    before = dt.datetime(2025, 9, 25, 1 , 39).astimezone(timezone)
 
     TOKEN = os.getenv("TOKEN")
     CHANNEL_ID = os.getenv("CHANNEL_ID")
