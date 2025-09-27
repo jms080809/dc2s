@@ -33,6 +33,7 @@ Run the main script to generate a video:
 
 python src/main.py
 
+In this process, this program makes directories that are **essential** for working like chats/, scenarios/,output/, which are made for debugging so you don't have to care about them.
 
 Generated videos will be saved in the output/ directory.
 
@@ -42,18 +43,8 @@ Converts raw chat logs → formatted scenario → rendered short-form video.
 
 Supports text + sound effects.
 
-Example:
-
-[Discord Chat]
-User1: Hello!
-User2: Hi, how are you?
-
-↓ ↓ ↓
-
-[Generated Shorts Video]
-- Animated text captions
-- Background audio
-- Dynamic visual effects
+you can see many many examples of videos made from this program in this youtube channel, which is mine:
+> https://www.youtube.com/@ho3_txle
 
 ## 📄 License
 

@@ -99,7 +99,9 @@ def extract_chat(
         file_src = f"./chats/{filename}.json"
         if os.path.isfile(file_src):
             os.remove(file_src)
-        with open(file_src, "w", encoding="utf-8") as f:
+        if not os.path.exists(file_src):
+              os.makedirs(os.path.dirname("./chats/"), exist_ok=True)
+        with open(file_src, "+w", encoding="utf-8") as f:
             f.write(json.dumps(extracted_data, indent=2,ensure_ascii=False))
 
     return ChatRawData(extracted_data)

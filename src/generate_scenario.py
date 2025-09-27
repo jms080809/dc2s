@@ -13,7 +13,7 @@ def generate_scenario(content, save: bool, filename: str, translate: bool = Fals
     effect_list = []
     animation_list = []
     sound_prompt_list = " | ".join(
-        [f'"{os.path.join(root, f)}"' for root, dirs, files in os.walk(sound_dir) for f in files if not f.endswith(".Identifier")]
+        [f'"{os.path.join(root, f)}"' for root, dirs, files in os.walk(sound_dir) for f in files if not f.endswith(".Identifier") or not f.endswith(".aup3")]
     )
     print(sound_prompt_list)
     prompt = f"""
@@ -66,18 +66,22 @@ def generate_scenario(content, save: bool, filename: str, translate: bool = Fals
         model=OPENROUTER_MODEL,
         messages=messages,
     )
-    print(
-        f"""
-        ======AI RAW DATA======
-        {completion.choices[0].message.content}
-        =======================
-        """
-    )
+    #남겨두세요 만일을 위해 ^^
+    # print(
+    #     f"""
+    #     ======AI RAW DATA======
+    #     {completion.choices[0].message.content}
+    #     =======================
+    #     """
+    # )
     output = json.loads(completion.choices[0].message.content)
     if save:
         file_src = f"./scenarios/{filename}_{dt.now().strftime('%y%m%d-%H%M%S')}.json"
         if os.path.isfile(file_src):
             os.remove(file_src)
+        if not os.path.exists(file_src):
+              os.makedirs(os.path.dirname("./scenarios/"), exist_ok=True)
         with open(file_src, "+a", encoding="utf-8") as f:
             f.write(json.dumps(output, ensure_ascii=False, indent=2))
+
     return output

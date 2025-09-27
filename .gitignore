@@ -1,6 +1,6 @@
 .env
 .venv
-*.mp4
-.output/*
-.scenarios/*
+output/*
+scenarios/*
 chats/
+src/__pycache__
