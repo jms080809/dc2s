@@ -61,6 +61,18 @@ def generate_discord_chat_shorts(
         factor = target_amplitude / current_max
         return audio_clip.with_volume_scaled(factor)
 
+    def bgm(audio_path:str)->AudioClip :
+        bgm_path = audio_path  # 원하는 BGM 경로
+        if os.path.exists(bgm_path):
+            try:
+                bgm = AudioFileClip(bgm_path).with_volume_scaled(0.2)
+            except Exception as e:
+                print(f"❌ BGM loading failed: {e}")
+                bgm = AudioClip(None,None,None)
+        else:
+            bgm = AudioClip(None,None,None)
+        return bgm
+
     def make_attachment_image(url: str) -> ImageClip:
         """Download and resize an image attachment."""
         try:
@@ -134,7 +146,6 @@ def generate_discord_chat_shorts(
         avatar_clip = avatar_clip.with_duration(duration).with_position(("center", avatar_y))
         username_clip = username_clip.with_duration(duration).with_position(("center", username_y))
         content_clip = content_clip.with_duration(duration).with_position(("center", content_y))
-
         # Attachments
         try:
             if bool(msg_data.get("attachments")):
@@ -144,11 +155,13 @@ def generate_discord_chat_shorts(
                     duration = content_clip.duration
                 elif attachment["content_type"] == "image":
                     content_clip = make_attachment_image(attachment["url"])
-                content_clip = content_clip.with_position("center").with_duration(duration)
+                content_clip = content_clip.with_position("center").with_duration(duration).resized(width=ATTACHMENT_SIZE,height=ATTACHMENT_SIZE)
+                username_clip = username_clip.with_duration(duration).with_position(("center",content_y+ATTACHMENT_SIZE/2 ))
+                scene_elements.extend([username_clip, content_clip])    
+            else:
+                scene_elements.extend([avatar_clip, username_clip, content_clip])    
         except Exception as e:
             raise e
-
-        scene_elements.extend([avatar_clip, username_clip, content_clip])
         scene = CompositeVideoClip(scene_elements, size=(VIDEO_WIDTH, VIDEO_HEIGHT))
 
         # Audio
@@ -167,6 +180,15 @@ def generate_discord_chat_shorts(
 
         return scene
 
+    #재귀를 통한 앰청난 중복체크
+    def set_unduplicated_file_path(output_dir:str,filename:str,index=0)->str:
+        output_path = os.path.join(output_dir,f"{filename}.mp4")
+        if index!=0:
+            output_path=os.path.join(output_dir,f"{filename}_({index}).mp4")   
+        if os.path.exists(output_path):
+            return set_unduplicated_file_path(output_dir=output_dir,filename=filename,index=index+1)
+        return output_path
+    
     # --- 3. Main logic ---
     chatters_info = scenario.get("chatters", {})
     message_clips = [create_message_scene(msg, chatters_info) for msg in scenario.get("contents", [])]
@@ -191,19 +213,32 @@ def generate_discord_chat_shorts(
         overlays.append(
             TextClip(
                 text=descriptions["watermark"], font_size=WATERMARK_FONT_SIZE, font=watermark_font, color="gray",
-                size=(VIDEO_WIDTH - SIDE_PADDING * 2, WATERMARK_FONT_SIZE * 2), method="caption"
+                          
+      size=(VIDEO_WIDTH - SIDE_PADDING * 2, WATERMARK_FONT_SIZE * 2), method="caption"
             ).with_duration(total_duration).with_position(("center", VIDEO_HEIGHT - 150))
         )
-
+    
     background = ColorClip(size=(VIDEO_WIDTH, VIDEO_HEIGHT), color=BG_COLOR).with_duration(total_duration)
     final_video = CompositeVideoClip([background, chat_sequence] + overlays).with_fps(FPS)
+    
+    #processing bgm
+    try:
+        bgm_path = descriptions["bgm"]
+        bgm_music = bgm(bgm_path)
+        if bgm_music.duration > final_video.duration:
+                bgm_music=bgm_music.subclipped(0,final_video.duration)
+        mixed_audio = CompositeAudioClip([final_video.audio,bgm_music])
+        final_video=final_video.with_audio(mixed_audio)
+    except Exception as e:
+        print(f"BGM processing error: {e}")
 
     # --- 4. Export ---
     try:
+        filename=scenario["descriptions"]["title"]
         output_dir = "./output"
         os.makedirs(output_dir, exist_ok=True)
-        output_path = os.path.join(output_dir, f"{filename}.mp4")
-
+        output_path = set_unduplicated_file_path(output_dir,filename)
+                
         final_video.write_videofile(
             output_path,
             codec="libx264",

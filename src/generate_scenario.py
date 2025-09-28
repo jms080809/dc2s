@@ -4,24 +4,26 @@ import os
 import utils
 from datetime import datetime as dt
 from dotenv import load_dotenv
-import random
-import numpy as np
 @utils.debug_print
 def generate_scenario(content, save: bool, filename: str, translate: bool = False):
+
     load_dotenv("../env")
+
     sound_dir = "./asset/sounds"
+    bgm_dir = "./asset/bgms"
+
     effect_list = []
     animation_list = []
-    sound_prompt_list = " | ".join(
-        [f'"{os.path.join(root, f)}"' for root, dirs, files in os.walk(sound_dir) for f in files if not f.endswith(".Identifier") or not f.endswith(".aup3")]
-    )
-    print(sound_prompt_list)
+    sound_prompt_list = " | ".join([f'"{os.path.join(root, f)}"' for root, dirs, files in os.walk(sound_dir) for f in files if f.lower().endswith((".mp3", ".wav", ".ogg"))])
+    bgm_prompt_list = " | ".join([f'"{os.path.join(root, f)}"' for root, dirs, files in os.walk(bgm_dir) for f in files if f.lower().endswith((".mp3", ".wav", ".ogg"))])
+
     prompt = f"""
     You are a data transformation expert. Convert a JSON chat log into a valid JSON object with keys: "descriptions", "chatters", "contents".
 
     1. "descriptions":
     - "title": funny titles, concise (<11 characters in korean, less than 15 characters in english), informal (Reddit/4chan style), follows 'translate' bool
     - "watermark": "@ho3_txle/tokkiyeah".
+    - "bgm": you have to choose appropriate bgm file according to context of chats. the given list of bgm is this:{bgm_prompt_list} for example, you can designate"{bgm_dir}/[filename].mp3", and ignore files that are not audio files like .identifier,aup3, etc.
 
     2. "chatters":
     - Unique usernames as keys.
@@ -29,7 +31,7 @@ def generate_scenario(content, save: bool, filename: str, translate: bool = Fals
 
     3. "contents" array:
     - Each item: "username", "content" (mask private info like 김정환→김XX, exclude celebrities), "timestamp", "attachments" (first with "url", "content_type"), "sound" (from {sound_prompt_list}, default: "{sound_dir}/discord-notification.mp3"), "effect" (from {effect_list}), "animation" (from {animation_list}), "duration".
-
+    - the property "content-type" has to be "image" or "gif", not MIME type.
     Rules:
     - Animation: Attachment → "scaleFade", <20 chars → "pop", >50 chars → "slideUp", system/bot → "none".
     - Sound: you have to choose appropriate sound file according to context of chats. the given list of sound is this:{sound_prompt_list} , default use is "{sound_dir}/discord-notification.mp3" but you have to avoid default use as you could.
