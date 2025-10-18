@@ -6,14 +6,14 @@ import datetime as dt
 def debug_print(function: Callable):
     def wrapper(*args, **kwargs):
         before = datetime.now()
-        print(f"\033[34mExecuting {function.__name__} function...\033[0m")
+        print(f"\033[34mExecuting {function.__name__} function...\033[0m",flush=True)
         try:
             result = function(*args, **kwargs)
             after = datetime.now()
-            print(f"\033[32mExecution of {function.__name__} was successful, took {(after-before).total_seconds()}s\033[0m")
+            print(f"\033[32mExecution of {function.__name__} was successful, took {(after-before).total_seconds()}s\033[0m",flush=True)
             return result
         except Exception as e:
-            print(f"\u001b[31mError: {e}\u001b[0m")
+            print(f"\u001b[31mError: {e}\u001b[0m",flush=True)
             raise
 
     return wrapper

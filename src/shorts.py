@@ -3,8 +3,9 @@ from PIL import Image, ImageDraw, ImageOps
 import numpy as np
 from moviepy import *
 import re, tempfile, os, requests
+import utils
 
-
+@utils.debug_print
 def generate_discord_chat_shorts(
     scenario: dict,
     title_font: str = "./asset/fonts/Orbit-Regular.ttf",
@@ -49,7 +50,7 @@ def generate_discord_chat_shorts(
             avatar_img.putalpha(mask)
             return ImageClip(np.array(avatar_img))
         except Exception as e:
-            print(f"❌ Avatar image error: {url}, {e}")
+            print(f"❌ Avatar image error: {url}, {e}",flush=True)
             return ColorClip(size=(AVATAR_SIZE, AVATAR_SIZE), color=(0, 0, 0, 0))
 
     def normalize_audio(audio_clip: AudioClip, target_db=-1.0) -> AudioClip:
@@ -65,9 +66,9 @@ def generate_discord_chat_shorts(
         bgm_path = audio_path  # 원하는 BGM 경로
         if os.path.exists(bgm_path):
             try:
-                bgm = AudioFileClip(bgm_path).with_volume_scaled(0.2)
+                bgm = AudioFileClip(bgm_path).with_volume_scaled(0.3)
             except Exception as e:
-                print(f"❌ BGM loading failed: {e}")
+                print(f"❌ BGM loading failed: {e}",flush=True)
                 bgm = AudioClip(None,None,None)
         else:
             bgm = AudioClip(None,None,None)
@@ -83,7 +84,7 @@ def generate_discord_chat_shorts(
             attachment_img.thumbnail((ATTACHMENT_SIZE, ATTACHMENT_SIZE), Image.Resampling.LANCZOS)
             return ImageClip(np.array(attachment_img))
         except Exception as e:
-            print(f"❌ Attachment image error: {url}, {e}")
+            print(f"❌ Attachment image error: {url}, {e}",flush=True)
             return ColorClip(size=(ATTACHMENT_SIZE, ATTACHMENT_SIZE), color=(0, 0, 0, 0))
 
     def make_attachment_gif(url: str) -> VideoFileClip:
@@ -109,7 +110,7 @@ def generate_discord_chat_shorts(
             return clip
 
         except Exception as e:
-            print(f"❌ Attachment gif error: {url}, {e}")
+            print(f"❌ Attachment gif error: {url}, {e}",flush=True)
             raise e
 
     def create_message_scene(msg_data: dict, chatters: dict) -> CompositeVideoClip:
@@ -174,9 +175,9 @@ def generate_discord_chat_shorts(
                     audio = normalize_audio(audio, target_db=-3.0)
                 scene = scene.with_audio(audio)
             except Exception as e:
-                print(f"❌ Sound error: {sound_path}, {e}")
+                print(f"❌ Sound error: {sound_path}, {e}",flush=True)
         else:
-            print(f"⚠️ Warning: Sound file not found - {sound_path}")
+            print(f"⚠️ Warning: Sound file not found - {sound_path}",flush=True)
 
         return scene
 
@@ -194,7 +195,7 @@ def generate_discord_chat_shorts(
     message_clips = [create_message_scene(msg, chatters_info) for msg in scenario.get("contents", [])]
 
     if not message_clips:
-        print("No messages to generate.")
+        print("No messages to generate.",flush=True)
         return
 
     chat_sequence = concatenate_videoclips(message_clips, method="compose")
@@ -230,7 +231,7 @@ def generate_discord_chat_shorts(
         mixed_audio = CompositeAudioClip([final_video.audio,bgm_music])
         final_video=final_video.with_audio(mixed_audio)
     except Exception as e:
-        print(f"BGM processing error: {e}")
+        print(f"BGM processing error: {e}",flush=True)
 
     # --- 4. Export ---
     try:
@@ -238,14 +239,15 @@ def generate_discord_chat_shorts(
         output_dir = "./output"
         os.makedirs(output_dir, exist_ok=True)
         output_path = set_unduplicated_file_path(output_dir,filename)
-                
+
         final_video.write_videofile(
             output_path,
             codec="libx264",
             audio_codec="libmp3lame",
             threads=4,
             preset="ultrafast",
+            remove_temp=True,
         )
-        print(f"✅ Video generated successfully: {output_path}")
+        print(f"✅ Video generated successfully: {output_path}",flush=True)
     except Exception as e:
-        print(f"❌ Video export error: {e}")
+        print(f"❌ Video export error: {e}",flush=True)

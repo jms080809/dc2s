@@ -12,7 +12,7 @@ class ChatRawData:
             self.chatters: dict = rawdata["chatters"]
             self.contents: dict = rawdata["contents"]
         except Exception as err:
-            print(f"Error initializing ChatRawData: {err}")
+            print(f"Error initializing ChatRawData: {err}",flush=True)
             self.chatters: dict = {}
             self.contents: dict = {}
 
@@ -55,7 +55,7 @@ def extract_chat(
     while True:
         res = requests.get(url, headers=headers)
         if res.status_code != 200:
-            print(f"Error {res.status_code} while fetching messages between {after} and {before}")
+            print(f"Error {res.status_code} while fetching messages between {after} and {before}",flush=True)
             return ChatRawData({"chatters": {}, "contents": []})
 
         chat_data = json.loads(res.content.decode("utf-8"))
